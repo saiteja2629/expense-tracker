@@ -1,0 +1,13 @@
+.signup-bg-container {
+  width: 50%;
+height: 500px;
+  border: 2px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label{
+    color: azure;
+}
