@@ -1,17 +1,17 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-import "../styles/components/inputFields.css";
+import '../styles/inputFields.css'
 
 const InputFields = (props) => {
-  const { type, name, title, className, id, placeholder } = props;
+  const { type, name, title, placeholder, className, id } = props;
 
   return (
     <div className="input-field-container">
       <label htmlFor={id}>{title}</label>
       <Field
-        name={name}
         type={type}
+        name={name}
         className={className}
         id={id}
         placeholder={placeholder}

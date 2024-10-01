@@ -1,12 +1,17 @@
 import React from "react";
-import InputFields from "./InputFields";
+import {Form} from "formik"
 
-import '../styles/components/signupForm.css'
+import InputFields from "./InputFields";
+// import { Link } from "react-router-dom";
+import AnchorTag from "./AnchorTag";
+import Button from "./Button";
+
+import '../styles/form.css'
 
 const SignupForm = () => {
   return (
     <>
-      <form className="signup-form-container">
+      <Form className="signup-form-container">
         <InputFields
           type="text"
           name="username"
@@ -20,7 +25,7 @@ const SignupForm = () => {
           type="email"
           name="email"
           title="Email"
-          className="input-filed"
+          className="input-field"
           id="email"
           placeholder="Enter email"
         />
@@ -43,10 +48,13 @@ const SignupForm = () => {
           placeholder="Enter Confirm password"
         />
 
-        
-      </form>
+        <Button type='submit' className="login-signup-btn" text="Register" />
+      </Form>
 
-      
+      <p className="navigate-text">
+        Already have account?
+        <AnchorTag href="/login" text="Login" />
+      </p>
     </>
   );
 };

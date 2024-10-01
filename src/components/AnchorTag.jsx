@@ -1,6 +1,6 @@
 import React from "react";
 
-import '../styles/components/anchorTag.css'
+import '../styles/anchorTag.css'
 
 const AnchorTag = (props) => {
   const { text, href } = props;

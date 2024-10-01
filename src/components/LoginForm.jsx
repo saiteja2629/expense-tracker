@@ -1,14 +1,16 @@
 import React from "react";
+import { Form } from "formik";
+
 import InputFields from "./InputFields";
 import Button from "./Button";
 import AnchorTag from "./AnchorTag";
 
-import '../styles/components/loginForm.css'
+import "../styles/form.css";
 
 const LoginForm = () => {
   return (
     <>
-      <form className="login-form-container">
+      <Form className="login-form-container">
         <InputFields
           type="email"
           name="email"
@@ -27,8 +29,8 @@ const LoginForm = () => {
           placeholder="Enter password"
         />
 
-        <Button className="login-btn" text="Login" />
-      </form>
+        <Button type="submit" className="login-signup-btn" text="Login" />
+      </Form>
 
       <p className="navigate-text">
         Don't have an account?
