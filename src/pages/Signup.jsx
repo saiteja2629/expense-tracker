@@ -16,11 +16,16 @@ const validationSchema = Yup.object({
     .email("Invalid email address")
     .required("Email is required"),
   password: Yup.string()
-    .min(8, "Password must be at least 8 characters long")
-    .matches(
-      /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/,
-      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
-    ),
+  .min(8, "Password must be at least 8 characters long")
+  .matches(
+    /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/,
+    "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+  )
+  .min(8, "Password must be at least 8 characters long")
+  .matches(
+    /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/,
+    "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+  ).required("Password is required"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Confirm Password is required"),
@@ -37,7 +42,9 @@ const Signup = () => {
         initialValues={state}
         validateOnMount
         validationSchema={validationSchema}
-        onSubmit={""}
+        onSubmit={(values, {setSubmiting}) => {
+          console.log(values)
+        }}
       >
         <SignupForm />
       </Formik>

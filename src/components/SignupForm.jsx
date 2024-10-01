@@ -1,4 +1,6 @@
 import React from "react";
+import { Form } from "formik";
+
 import InputFields from "./InputFields";
 // import { Link } from "react-router-dom";
 import AnchorTag from "./AnchorTag";
@@ -9,7 +11,7 @@ import '../styles/form.css'
 const SignupForm = () => {
   return (
     <>
-      <form className="signup-form-container">
+      <Form className="signup-form-container">
         <InputFields
           type="text"
           name="username"
@@ -46,8 +48,8 @@ const SignupForm = () => {
           placeholder="Enter Confirm password"
         />
 
-        <Button className="login-signup-btn" text="Register" />
-      </form>
+        <Button  type="submit" className="login-signup-btn" text="Register" />
+      </Form>
 
       <p className="navigate-text">
         Already have account?

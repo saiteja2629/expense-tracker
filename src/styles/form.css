@@ -1,6 +1,6 @@
 .signup-bg-container,
 .login-bg-container {
-  background: #fec6b2;
+  background: #fec6b260;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -3,9 +3,9 @@ import React from "react";
 import '../styles/button.css'
 
 const Button = (props) => {
-  const { className, text } = props;
+  const { type, className, text } = props;
 
-  return <button className={className}>{text}</button>;
+  return <button type={type} className={className}>{text}</button>;
 };
 
 export default Button;
