@@ -1,4 +1,3 @@
-
 * {
   padding: 0;
   margin: 0;
@@ -12,7 +11,12 @@
 }
 
 .App {
-  background-color: var(--black);
+  background-image: linear-gradient(
+    45deg,
+    #ff9a9e70 0%,
+    #fad0c470 99%,
+    #fad0c470 100%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;

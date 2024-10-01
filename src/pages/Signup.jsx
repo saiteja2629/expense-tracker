@@ -31,6 +31,8 @@ const Signup = () => {
 
   return (
     <div className="signup-bg-container">
+      <h1 className="title">REGISTER</h1>
+      
       <Formik
         initialValues={state}
         validateOnMount

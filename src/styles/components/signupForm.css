@@ -1,13 +1,25 @@
 .signup-bg-container {
-  width: 50%;
-height: 500px;
-  border: 2px solid #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px;
+  width: 40%;
+  min-width: 300px;
+  border-radius: 8px;
 }
 
-.label{
-    color: azure;
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px 5px;
+  width: 90%;
+  min-height: 100px;
+}
+
+.login {
+  text-decoration: none;
 }

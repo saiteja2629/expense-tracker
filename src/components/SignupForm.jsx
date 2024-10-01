@@ -1,7 +1,9 @@
 import React from "react";
 import InputFields from "./InputFields";
+// import { Link } from "react-router-dom";
+import AnchorTag from "./AnchorTag";
 
-import '../styles/components/signupForm.css'
+import "../styles/components/signupForm.css";
 
 const SignupForm = () => {
   return (
@@ -43,10 +45,11 @@ const SignupForm = () => {
           placeholder="Enter Confirm password"
         />
 
-        
+        <p className="login-register-link">
+          Already have account? Login Here
+          <AnchorTag href="/login" text="Login" />
+        </p>
       </form>
-
-      
     </>
   );
 };
