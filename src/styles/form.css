@@ -1,4 +1,6 @@
-.signup-bg-container {
+.signup-bg-container,
+.login-bg-container {
+  background: #fec6b2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,17 +11,23 @@
   border-radius: 8px;
 }
 
-.signup-form-container {
+.title {
+  font-size: 34px;
+}
+
+.signup-form-container,
+.login-form-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 20px 0;
-  padding: 10px 5px;
+  margin: 5px 0 10px 0;
+  padding: 10px;
   width: 90%;
   min-height: 100px;
 }
 
-.login {
+.navigate-text {
+  font-size: 14px;
   text-decoration: none;
 }

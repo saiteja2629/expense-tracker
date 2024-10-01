@@ -2,8 +2,9 @@ import React from "react";
 import InputFields from "./InputFields";
 // import { Link } from "react-router-dom";
 import AnchorTag from "./AnchorTag";
+import Button from "./Button";
 
-import "../styles/components/signupForm.css";
+import '../styles/form.css'
 
 const SignupForm = () => {
   return (
@@ -22,7 +23,7 @@ const SignupForm = () => {
           type="email"
           name="email"
           title="Email"
-          className="input-filed"
+          className="input-field"
           id="email"
           placeholder="Enter email"
         />
@@ -45,11 +46,13 @@ const SignupForm = () => {
           placeholder="Enter Confirm password"
         />
 
-        <p className="login-register-link">
-          Already have account? Login Here
-          <AnchorTag href="/login" text="Login" />
-        </p>
+        <Button className="login-signup-btn" text="Register" />
       </form>
+
+      <p className="navigate-text">
+        Already have account?
+        <AnchorTag href="/login" text="Login" />
+      </p>
     </>
   );
 };

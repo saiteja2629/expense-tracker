@@ -1,10 +1,10 @@
-import React from 'react'
-import Signup from './pages/Signup'
-import Login from './pages/Login';
+import React from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
-import './App.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import "./App.css";
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -66,7 +66,6 @@ const App = () => {
       <RouterProvider router={routes} />
     </div>
   );
-
-}
+};
 
 export default App;

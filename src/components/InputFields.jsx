@@ -1,8 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-import '../styles/components/inputFields.css'
-
+import '../styles/inputFields.css'
 
 const InputFields = (props) => {
   const { type, name, title, placeholder, className, id } = props;
@@ -10,7 +9,6 @@ const InputFields = (props) => {
   return (
     <div className="input-field-container">
       <label htmlFor={id}>{title}</label>
-
       <Field
         type={type}
         name={name}
@@ -19,7 +17,7 @@ const InputFields = (props) => {
         placeholder={placeholder}
       />
 
-      <ErrorMessage name={name} />
+      <ErrorMessage className="error-message" name={name} />
     </div>
   );
 };
