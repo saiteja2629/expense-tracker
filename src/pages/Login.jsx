@@ -4,8 +4,6 @@ import * as Yup from "yup";
 
 import LoginForm from "../components/LoginForm";
 
-import "../styles/pages/login.css";
-
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email address")

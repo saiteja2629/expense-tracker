@@ -1,10 +1,12 @@
 import React from "react";
 
+import '../styles/components/anchorTag.css'
+
 const AnchorTag = (props) => {
   const { text, href } = props;
 
   return (
-    <a className="" href={href}>
+    <a className="navigate-link" href={href}>
       {text}
     </a>
   );

@@ -10,13 +10,17 @@
   --black: #3c3935;
 }
 
-.App {
+body {
   background-image: linear-gradient(
-    45deg,
-    #ff9a9e70 0%,
-    #fad0c470 99%,
-    #fad0c470 100%
+    #f8b195,
+    #f67280,
+    #c06c84,
+    #6c5b7b,
+    #355670
   );
+}
+
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
