@@ -1,0 +1,44 @@
+.navbar-bg-container {
+  margin: 20px auto;
+  width: 90%;
+  min-width: 300px;
+  border-radius: 6px;
+  border: 2px solid #ffffff;
+}
+
+.navbar-container {
+  margin: 5px 10px;
+  padding: 5px 10px;
+  height: 50px;
+}
+
+.logo {
+  background: #ffffff;
+  text-align: center;
+  color: #7ef5e1;
+  font-family: "Comic Sans MS";
+  font-size: 24px;
+  margin: 0;
+  padding: 4px 8px;
+  min-width: 100px;
+  border-radius: 4px;
+}
+
+.navbar-links {
+  margin: 0;
+  padding: 0;
+  width: 40%;
+  height: 40px;
+  list-style-type: none;
+}
+
+.navbar-links li a {
+  color: #ffffff;
+  font-family: "Comic Sans MS";
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.navbar-links li a:hover {
+  text-decoration: underline;
+}

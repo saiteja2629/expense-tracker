@@ -1,0 +1,12 @@
+.add-expense-bg-container {
+  margin: auto;
+  width: 90%;
+  min-width: 300px;
+  /* border: 1px solid black; */
+}
+
+.expense-form-container {
+  width: 40%;
+  padding: 10px;
+  min-width: 300px;
+}
