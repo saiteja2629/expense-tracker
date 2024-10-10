@@ -7,7 +7,7 @@ import '../styles/home.css'
 
 const Home = () => {
   return (
-    <div className="home-bg-container">
+    <div className="home-bg-container d-flex flex-column align-items-center">
       <Navbar />
       <AddExpense />
     </div>

@@ -1,9 +1,12 @@
 .navbar-bg-container {
-  margin: 20px auto;
+  position: fixed;
+  background: #7ef5e1;
+  margin: 20px 0;
   width: 90%;
   min-width: 300px;
   border-radius: 6px;
   border: 2px solid #ffffff;
+  z-index: 99;
 }
 
 .navbar-container {
@@ -32,10 +35,12 @@
   list-style-type: none;
 }
 
-.navbar-links li a {
+.navbar-links li a,
+.navbar-links li p {
   color: #ffffff;
   font-family: "Comic Sans MS";
   font-size: 18px;
+  margin: 0;
   text-decoration: none;
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 import { postUserSignUp } from "../utils/apis/api";
 import SignupForm from "../components/SignupForm";
@@ -35,6 +36,7 @@ const validationSchema = Yup.object({
 
 const Signup = () => {
   const state = { username: "", email: "", password: "", confirmPassword: "" };
+  const navigate = useNavigate();
 
   return (
     <div className="signup-bg-container">
@@ -46,13 +48,17 @@ const Signup = () => {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const data = await postUserSignUp(values);
-
           console.log("SIGNUP DATA", data);
-
           try {
-            
+            if (data.status === 200) {
+              navigate("/login");
+              resetForm();
+            } else {
+              // setToastMsg({ message: postDataResponse.message, isError: true });
+              setSubmitting(false);
+            }
           } catch (error) {
-            
+            // setToastMsg({ message: "Failed to post data", isError: true });
           }
         }}
       >

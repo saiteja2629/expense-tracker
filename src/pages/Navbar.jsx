@@ -1,8 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import "../styles/navbar.css"
+import { getMyExpenses } from "../utils/apis/api";
+
+import "../styles/navbar.css";
 
 const Navbar = () => {
+  const getMyExpensesData = async () => {
+    const data = await getMyExpenses();
+
+    console.log(data);
+  };
+
   return (
     <div className="navbar-bg-container">
       <div className="navbar-container d-flex flex-row justify-content-between align-items-center">
@@ -10,13 +19,15 @@ const Navbar = () => {
 
         <ul className="navbar-links d-flex flex-row justify-content-around align-items-center">
           <li>
-            <a href="/my-expenses">My Expenses</a>
+            <Link to="/my-expenses" onClick={getMyExpensesData}>
+              My Expenses
+            </Link>
           </li>
           <li>
-            <a href="#">Username</a>
+            <p>Username</p>
           </li>
           <li>
-            <a href="#">Profile Picture</a>
+            <p>Profile Picture</p>
           </li>
         </ul>
       </div>
