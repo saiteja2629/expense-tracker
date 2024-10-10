@@ -8,9 +8,9 @@ import {
 
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 import "./App.css";
-import Home from "./pages/Home";
 
 const App = () => {
   const isTokenValid = async (token) => {
@@ -56,6 +56,13 @@ const App = () => {
     }
     return null;
   };
+
+  // const requireBoth = async () => {
+  //   if ((await requireAuth()) && (await isAlreadyLoggedIn())) {
+  //     return null;
+  //   }
+  //   return redirect("/login");
+  // };
 
   const routes = createBrowserRouter([
     {

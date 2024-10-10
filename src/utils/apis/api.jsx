@@ -7,21 +7,26 @@ export const postUserSignUp = async (values) => {
         "Content-Type": "application/json",
       },
     });
-
-    return response.data;
+    return response;
   } catch (error) {
     return { status: 500, message: error.message };
-
   }
 };
 
 export const postUserLogin = async (values) => {
   try {
     const response = await axios.post("http://localhost:3001/login", values);
-    console.log(response);
-    
     return response.data;
   } catch (error) {
-    return { status: 500, message: error.message };
+    return error.message;
   }
 };
+
+export const postExpenseData = async (values) => {
+  try {
+    const response = await axios.post("http://localhost:3001/add-expense", values);    
+    return response;
+  } catch (error) {
+    return error.message;
+  }
+}

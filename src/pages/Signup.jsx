@@ -48,16 +48,14 @@ const Signup = () => {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const data = await postUserSignUp(values);
-          console.log(data);
+
+          console.log("SIGNUP DATA", data);
 
           try {
-            if (data.status === 200) {
-              navigate("/login")
-              resetForm()
-            } else {
-              setSubmitting(false)
-            }
-          } catch (error) {}
+            
+          } catch (error) {
+            
+          }
         }}
       >
         <SignupForm />

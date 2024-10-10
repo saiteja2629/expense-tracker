@@ -1,20 +1,25 @@
 import React from "react";
-import "../styles/navBar.css";
+
+import "../styles/navbar.css"
 
 const Navbar = () => {
   return (
-    <div className="navbar-bg-container d-flex flex-row justify-content-between">
-      <div className="">
-        <h1 className="">X-Pense</h1>
-      </div>
+    <div className="navbar-bg-container">
+      <div className="navbar-container d-flex flex-row justify-content-between align-items-center">
+        <h1 className="logo">X-Pense</h1>
 
-      <ul className="nav-items d-flex flex-row justify-content-center">
-        <li className="">My Expenses</li>
-        <li className="">USERNAME</li>
-        <li className="">
-          <img src="" alt="Profile-pic" className="" />
-        </li>
-      </ul>
+        <ul className="navbar-links d-flex flex-row justify-content-around align-items-center">
+          <li>
+            <a href="/my-expenses">My Expenses</a>
+          </li>
+          <li>
+            <a href="#">Username</a>
+          </li>
+          <li>
+            <a href="#">Profile Picture</a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

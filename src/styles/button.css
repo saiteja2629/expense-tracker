@@ -1,11 +1,21 @@
-.login-signup-btn {
+.login-signup-btn,
+.add-expense-btn {
   font-size: 18px;
   font-weight: 600;
   margin-top: 10px;
-  width: 100px;
+  padding: 0 10px;
+  min-width: 100px;
   height: 34px;
   border-radius: 6px;
   cursor: pointer;
   border: none;
   outline: none;
 }
+
+/* .add-expense-btn {
+  background: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+} */
