@@ -48,13 +48,17 @@ const Signup = () => {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const data = await postUserSignUp(values);
-
           console.log("SIGNUP DATA", data);
-
           try {
-            
+            if (data.status === 200) {
+              navigate("/login");
+              resetForm();
+            } else {
+              // setToastMsg({ message: postDataResponse.message, isError: true });
+              setSubmitting(false);
+            }
           } catch (error) {
-            
+            // setToastMsg({ message: "Failed to post data", isError: true });
           }
         }}
       >

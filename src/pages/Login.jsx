@@ -29,10 +29,12 @@ const Login = () => {
         validateOnMount
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
-          const data = await postUserLogin(values); 
+          const data = await postUserLogin(values);
+          
+          console.log("LOGIN DATA:", data)
 
           try {
-            if (data.message === "Successful") {
+            if (data.message === 'Successful') {
               if (data.token) {
                 sessionStorage.setItem("token", data.token);
                 navigate("/");

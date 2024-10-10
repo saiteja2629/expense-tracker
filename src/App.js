@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 
 import "./App.css";
+import MyExpenses from "./pages/MyExpenses";
 
 const App = () => {
   const isTokenValid = async (token) => {
@@ -80,6 +81,11 @@ const App = () => {
       element: <Login />,
       loader: isAlreadyLoggedIn,
     },
+    {
+      path: "/my-expenses",
+      element: <MyExpenses />,
+      loader: requireAuth,
+    }
     // {
     //   path: "/logout",
     //   element: <Login />,

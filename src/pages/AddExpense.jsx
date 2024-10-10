@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Formik } from "formik";
+import * as Yup from "yup";
 
 import { postExpenseData } from "../utils/apis/api";
 import InputFields from "../components/InputFields";
@@ -7,6 +8,13 @@ import DropDown from "../components/DropDown";
 import Button from "../components/Button";
 
 import "../styles/addExpense.css";
+
+const validationSchema = Yup.object({
+  date: Yup.date().required("Date is required"),
+  paymentType: Yup.string().required("Payment type is required"),
+  amount: Yup.string().required("Amount is required"),
+  categoryType: Yup.string().required("Category type is required"),
+});
 
 const paymentTypes = [
   { id: 1, type: "Cash" },
@@ -29,13 +37,13 @@ const categoryTypes = [
   { id: 8, type: "Rent" },
   { id: 9, type: "Insurance" },
   { id: 10, type: "Salary" },
-  { id: 11, type: "Pension" },
+  { id: 11, type: "Shopping" },
   { id: 12, type: "Investments" },
   { id: 13, type: "Loans" },
   { id: 14, type: "Donations" },
   { id: 15, type: "Gift Cards" },
   { id: 16, type: "Travel" },
-  { id: 17, type: "Dining Out" },
+  { id: 17, type: "Fuel" },
   { id: 18, type: "Pet Care" },
   { id: 19, type: "Home Improvement" },
   { id: 20, type: "Children's Expenses" },
@@ -49,15 +57,26 @@ const AddExpense = () => {
     categoryType: "",
     remarks: "",
   };
-
+  
   return (
     <div className="add-expense-bg-container d-flex flex-column align-items-center">
       <Formik
         initialValues={state}
-        // validateOnMount
-        // validationSchema={validationSchema}
+        validateOnMount
+        validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const data = await postExpenseData(values);
+
+          try {
+            if (data.status === 200) {
+              resetForm();
+            } else {
+              // setToastMsg({ message: postDataResponse.message, isError: true });
+              setSubmitting(false);
+            }
+          } catch (error) {
+            // setToastMsg({ message: "Failed to post data", isError: true });
+          }
 
           console.log(data);
           console.log(values);          
