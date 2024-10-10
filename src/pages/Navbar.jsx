@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "../styles/navbar.css"
 
@@ -10,7 +11,7 @@ const Navbar = () => {
 
         <ul className="navbar-links d-flex flex-row justify-content-around align-items-center">
           <li>
-            <a href="/my-expenses">My Expenses</a>
+            <Link to="/my-expenses">My Expenses</Link>
           </li>
           <li>
             <a href="#">Username</a>
