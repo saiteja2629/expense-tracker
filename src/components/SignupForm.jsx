@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "formik";
+import {Form} from "formik"
 
 import InputFields from "./InputFields";
 // import { Link } from "react-router-dom";
@@ -48,7 +48,7 @@ const SignupForm = () => {
           placeholder="Enter Confirm password"
         />
 
-        <Button  type="submit" className="login-signup-btn" text="Register" />
+        <Button type='submit' className="login-signup-btn" text="Register" />
       </Form>
 
       <p className="navigate-text">

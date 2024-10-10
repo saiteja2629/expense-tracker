@@ -5,7 +5,7 @@ import InputFields from "./InputFields";
 import Button from "./Button";
 import AnchorTag from "./AnchorTag";
 
-import '../styles/form.css'
+import "../styles/form.css";
 
 const LoginForm = () => {
   return (
