@@ -3,15 +3,17 @@ import axios from "axios";
 import {
   RouterProvider,
   createBrowserRouter,
-  redirect
+  redirect,
 } from "react-router-dom";
 
+import { MyProvider } from "./MyContext";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import MyExpenses from "./pages/MyExpenses";
+import Profile from "./pages/Profile";
 
 import "./App.css";
-import MyExpenses from "./pages/MyExpenses";
 
 const App = () => {
   const isTokenValid = async (token) => {
@@ -58,12 +60,12 @@ const App = () => {
     return null;
   };
 
-  // const requireBoth = async () => {
-  //   if ((await requireAuth()) && (await isAlreadyLoggedIn())) {
-  //     return null;
-  //   }
-  //   return redirect("/login");
-  // };
+  const requireBoth = async () => {
+    if ((await requireAuth()) && (await isAlreadyLoggedIn())) {
+      return null;
+    }
+    return redirect("/login");
+  };
 
   const routes = createBrowserRouter([
     {
@@ -85,12 +87,17 @@ const App = () => {
       path: "/my-expenses",
       element: <MyExpenses />,
       loader: requireAuth,
-    }
-    // {
-    //   path: "/logout",
-    //   element: <Login />,
-    //   loader: requireBoth,
-    // },
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
+      loader: requireAuth,
+    },
+    {
+      path: "/logout",
+      element: <Login />,
+      loader: requireBoth,
+    },
     // {
     //   path: "/not-found",
     //   element: <Notfound />,
@@ -103,7 +110,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <RouterProvider router={routes} />
+      <MyProvider>
+        <RouterProvider router={routes} />
+      </MyProvider>
     </div>
   );
 };

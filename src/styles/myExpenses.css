@@ -10,3 +10,33 @@
   min-width: 300px;
   border: 1px solid #fff;
 }
+
+.expense-table-head {
+  background: #fff;
+  height: 34px;
+  border-radius: 10px;
+}
+
+.expense-table-head tr th {
+  text-align: left;
+  color: #7ef5e1;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 0 0 6px;
+}
+
+/* .expense-table-body {
+} */
+
+.expense-table-body tr {
+  height: 34px;
+  min-height: 34px;
+  border-bottom: 1px solid #fff;
+}
+
+.expense-table-body tr td {
+  color: #2d58a6;
+  font-size: 12px;
+  margin: 0;
+  padding: 0 0 0 6px;
+}

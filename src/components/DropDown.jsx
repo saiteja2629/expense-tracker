@@ -18,7 +18,7 @@ const DropDown = (props) => {
         ))}
       </Field>
 
-      <ErrorMessage className="error-message" name={name} />
+      <ErrorMessage className="error-message" component="div" name={name} />
     </div>
   );
 };

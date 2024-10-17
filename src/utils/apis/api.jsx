@@ -48,9 +48,52 @@ export const getMyExpenses = async () => {
         Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     });
-    console.log("From FE API file :", response);
     return response.data;
   } catch (error) {
     return { status: 500, message: error.message };
   }
 };
+
+export const getLoggedUsername = async () => {
+  try {
+    const response = await axios.get("http://localhost:3001/", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+};
+
+export const postChangeUsername = async (values) => {
+  console.log(values);
+  
+  try {
+    const response = await axios.post("http://localhost:3001/profile", values, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+};
+
+export const postChangePassword = async (values) => {
+  try {
+    const response = await axios.post("http://localhost:3001/profile", values, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+}

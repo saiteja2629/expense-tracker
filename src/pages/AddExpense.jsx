@@ -76,10 +76,7 @@ const AddExpense = () => {
             }
           } catch (error) {
             // setToastMsg({ message: "Failed to post data", isError: true });
-          }
-
-          console.log(data);
-          console.log(values);          
+          }       
         }}
       >
         <Form className="expense-form-container d-flex flex-column align-items-center">

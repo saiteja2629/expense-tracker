@@ -15,23 +15,23 @@ const validationSchema = Yup.object({
 
 const Login = () => {
   const navigate = useNavigate();
-  const state = { email: "", password: "" };
+  const initialValues = { email: "", password: "" };
 
   return (
     <div className="login-bg-container">
       <h1 className="title">LOGIN</h1>
 
       <Formik
-        initialValues={state}
+        initialValues={initialValues}
         validateOnMount
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const data = await postUserLogin(values);
-          
-          console.log("LOGIN DATA:", data)
+
+          console.log("LOGIN DATA:", data);
 
           try {
-            if (data.message === 'Successful') {
+            if (data.message === "Successful") {
               if (data.token) {
                 sessionStorage.setItem("token", data.token);
                 navigate("/");
@@ -42,7 +42,7 @@ const Login = () => {
               setSubmitting(false);
             }
           } catch (error) {
-            console.log(error);            
+            console.log(error);
             // setToastMsg({ message: "Failed to post data", isError: true });
           }
         }}
