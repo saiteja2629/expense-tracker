@@ -1,16 +1,17 @@
 .navbar-bg-container {
-  position: fixed;
-  margin: 20px 0;
-  width: 90%;
-  height: 50px;
-  border-radius: 5px;
-  border: 2px solid #fff;
-  z-index: 99;
-}
-
-.nav-items {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  border: 1px solid red;
-}
+    position: fixed;
+    margin: 20px 0;
+    width: 90%;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    z-index: 99;
+  }
+  
+  .nav-items {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    border: 1px solid red;
+  }
+  

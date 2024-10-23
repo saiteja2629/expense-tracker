@@ -1,13 +1,12 @@
 .signup-bg-container,
-.login-bg-container {
+.login-bg-container,
+.forgot-password-bg-container,
+.not-found-bg-container {
   background: #fec6b260;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 40px;
   width: 40%;
   min-width: 300px;
+  min-height: 300px;
   border-radius: 8px;
 }
 
@@ -16,18 +15,51 @@
 }
 
 .signup-form-container,
-.login-form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 5px 0 10px 0;
+.login-form-container,
+.forgot-password-form-container {
+  margin: 5px 0 5px 0;
   padding: 10px;
   width: 90%;
   min-height: 100px;
 }
 
+.auth-links-container {
+  padding: 5px;
+}
+
+.forgot-password-link {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .navigate-text {
   font-size: 14px;
   text-decoration: none;
+  margin: 10px 0 0 0;
+}
+
+.main-heading {
+  color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.sub-heading {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.not-found-text {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.not-found-code {
+  color: #ff0000;
 }

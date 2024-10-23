@@ -35,15 +35,20 @@ const validationSchema = Yup.object({
 });
 
 const Signup = () => {
-  const state = { username: "", email: "", password: "", confirmPassword: "" };
+  const initialValues = {
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
   const navigate = useNavigate();
 
   return (
-    <div className="signup-bg-container">
+    <div className="signup-bg-container d-flex flex-column justify-content-center align-items-center">
       <h1 className="title">REGISTER</h1>
 
       <Formik
-        initialValues={state}
+        initialValues={initialValues}
         validateOnMount
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {

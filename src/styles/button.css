@@ -1,8 +1,8 @@
 .login-signup-btn,
-.add-expense-btn {
-  font-size: 18px;
+.add-expense-btn,
+.profile-changes-btn,
+.reset-password-btn {
   font-weight: 600;
-  margin-top: 10px;
   padding: 0 10px;
   min-width: 100px;
   height: 34px;
@@ -12,10 +12,16 @@
   outline: none;
 }
 
-/* .add-expense-btn {
-  background: #ffffff;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-} */
+.login-signup-btn,
+.add-expense-btn {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.profile-changes-btn,
+.reset-password-btn {
+  background: greenyellow;
+  font-size: 14px;
+  align-self: flex-end;
+  margin: 0 38px 10px 0;
+}

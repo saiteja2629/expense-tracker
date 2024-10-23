@@ -17,7 +17,7 @@ const InputFields = (props) => {
         placeholder={placeholder}
       />
 
-      <ErrorMessage className="error-message" name={name} />
+      <ErrorMessage className="error-message" component="div" name={name} />
     </div>
   );
 };
