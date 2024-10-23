@@ -2,11 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
 
 import { postUserLogin } from "../utils/apis/api";
 import LoginForm from "../components/LoginForm";
-import { postUserLogin } from "../utils/apis/api";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -18,7 +16,6 @@ const validationSchema = Yup.object({
 const Login = () => {
   const navigate = useNavigate();
   const state = { email: "", password: "" };
-  const navigate = useNavigate();
 
   return (
     <div className="login-bg-container">
@@ -30,11 +27,11 @@ const Login = () => {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const data = await postUserLogin(values);
-          
-          console.log("LOGIN DATA:", data)
+
+          console.log("LOGIN DATA:", data);
 
           try {
-            if (data.message === 'Successful') {
+            if (data.message === "Successful") {
               if (data.token) {
                 sessionStorage.setItem("token", data.token);
                 navigate("/");
@@ -45,7 +42,7 @@ const Login = () => {
               setSubmitting(false);
             }
           } catch (error) {
-            console.log(error);            
+            console.log(error);
             // setToastMsg({ message: "Failed to post data", isError: true });
           }
         }}
