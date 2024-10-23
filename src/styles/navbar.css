@@ -1,11 +1,10 @@
 .navbar-bg-container {
   position: fixed;
   background: #7ef5e1;
-  margin: 20px 0;
-  width: 90%;
+  margin: 0 0 20px 0;
+  width: 100%;
   min-width: 300px;
-  border-radius: 6px;
-  border: 2px solid #ffffff;
+  /* border-bottom: 2px solid #ffffff; */
   z-index: 99;
 }
 

@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import MyExpenses from "./pages/MyExpenses";
 import Profile from "./pages/Profile";
+import ForgotPassword from "./pages/ForgotPassword";
+import NotFound from "./pages/NotFound";
 
 import "./App.css";
 
@@ -94,18 +96,22 @@ const App = () => {
       loader: requireAuth,
     },
     {
+      path: "/forgot-password",
+      element: <ForgotPassword />,
+    },
+    {
       path: "/logout",
       element: <Login />,
       loader: requireBoth,
     },
-    // {
-    //   path: "/not-found",
-    //   element: <Notfound />,
-    // },
-    // {
-    //   path: "*",
-    //   element: <Navigate to="/not-found" />,
-    // },
+    {
+      path: "/not-found",
+      element: <NotFound />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
   ]);
 
   return (

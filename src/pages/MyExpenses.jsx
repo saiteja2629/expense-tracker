@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { format } from "date-fns";
 
 import { MyContext } from "../MyContext";
 import Navbar from "./Navbar";
@@ -7,7 +6,7 @@ import Navbar from "./Navbar";
 import "../styles/myExpenses.css";
 
 const MyExpenses = () => {
-  const { state, setState } = useContext(MyContext);
+  const { state } = useContext(MyContext);
 
   return (
     <div className="my-expense-bg-container d-flex flex-column align-items-center">

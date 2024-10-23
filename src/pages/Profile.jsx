@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
@@ -9,7 +10,7 @@ import Navbar from "./Navbar";
 
 import "../styles/profile.css";
 
-const validationSchema = Yup.object({
+const usernamevalidationSchema = Yup.object({
   username: Yup.string()
     .matches(
       /^[A-Za-z]+$/,
@@ -17,6 +18,9 @@ const validationSchema = Yup.object({
     )
     .min(2, "The first name must be at least 2 characters long")
     .required("Username is required"),
+});
+
+const passwordValidationSchema = Yup.object({
   newPassword: Yup.string()
     .min(8, "Password must be at least 8 characters long")
     .matches(
@@ -35,7 +39,17 @@ const validationSchema = Yup.object({
 });
 
 const Profile = () => {
-  const initialValues = { username: "", newPassword: "", confirmPassword: "" };
+  const usernameInitialValues = {
+    username: "",
+  };
+
+  const passwordInitialValues = {
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div className="profile-bg-container d-flex flex-column align-items-center">
@@ -45,28 +59,28 @@ const Profile = () => {
         <h2 className="profile-heading">Profile</h2>
 
         <Formik
-          initialValues={initialValues}
+          initialValues={usernameInitialValues}
           validateOnMount
-          validationSchema={validationSchema}
+          validationSchema={usernamevalidationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
-            console.log("Change clicked on");
-
             const data = await postChangeUsername(values);
-            console.log(data);
 
-            // try {
-            //   if (data.status === 200) {
-            //     resetForm();
-            //   } else {
-            //     // setToastMsg({ message: postDataResponse.message, isError: true });
-            //     setSubmitting(false);
-            //   }
-            // } catch (error) {
-            //   // setToastMsg({ message: "Failed to post data", isError: true });
-            // }
+            try {
+              if (data.status === 200) {
+                resetForm();
+              } else {
+                // setToastMsg({ message: postDataResponse.message, isError: true });
+                setSubmitting(false);
+              }
+            } catch (error) {
+              // setToastMsg({ message: "Failed to post data", isError: true });
+            }
           }}
         >
-          <Form className="d-flex flex-column align-items-center">
+          <Form
+            action="/change-username"
+            className="d-flex flex-column align-items-center"
+          >
             <InputFields
               type="text"
               name="username"
@@ -89,15 +103,30 @@ const Profile = () => {
         <h2 className="profile-heading">Password</h2>
 
         <Formik
-          initialValues={initialValues}
+          initialValues={passwordInitialValues}
           validateOnMount
-          validationSchema={validationSchema}
+          validationSchema={passwordValidationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             const data = await postChangePassword(values);
-            console.log(data);
+
+            try {
+              if (data.status === 200) {
+                resetForm();
+                sessionStorage.clear();
+                navigate("/login");
+              } else {
+                // setToastMsg({ message: postDataResponse.message, isError: true });
+                setSubmitting(false);
+              }
+            } catch (error) {
+              // setToastMsg({ message: "Failed to post data", isError: true });
+            }
           }}
         >
-          <Form className="d-flex flex-column align-items-center">
+          <Form
+            action="/change-password"
+            className="d-flex flex-column align-items-center"
+          >
             <InputFields
               type="password"
               name="currentPassword"

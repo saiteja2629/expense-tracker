@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { MyContext } from "../MyContext";
@@ -11,14 +11,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
+  const getMyExpensesData = useCallback(async () => {
+    const response = await getMyExpenses();
+    setState((prevState) => ({ ...prevState, expenses: response.expenses }));
+  }, [setState]);
+
   useEffect(() => {
     getMyExpensesData();
-  }, []);
-
-  const getMyExpensesData = async () => {
-    const data = await getMyExpenses();
-    setState({ expenses: data.expenses });
-  };
+  }, [getMyExpensesData]);
 
   const onClickProfile = () => {
     setIsOpen((prev) => !prev);
@@ -44,7 +44,7 @@ const Navbar = () => {
           </li>
           <li className="profile-container d-flex flex-column">
             <div className="profile-container d-flex flex-row justify-content-between align-items-center">
-              <p className="">{state.username}</p>
+              <p className="">{state.userName}</p>
               <i className="bi bi-person-circle" onClick={onClickProfile}></i>
             </div>
 

@@ -18,7 +18,7 @@ const Login = () => {
   const initialValues = { email: "", password: "" };
 
   return (
-    <div className="login-bg-container">
+    <div className="login-bg-container d-flex flex-column justify-content-center align-items-center">
       <h1 className="title">LOGIN</h1>
 
       <Formik

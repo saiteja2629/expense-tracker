@@ -1,6 +1,7 @@
 .login-signup-btn,
 .add-expense-btn,
-.profile-changes-btn {
+.profile-changes-btn,
+.reset-password-btn {
   font-weight: 600;
   padding: 0 10px;
   min-width: 100px;
@@ -17,9 +18,10 @@
   margin-top: 10px;
 }
 
-.profile-changes-btn {
+.profile-changes-btn,
+.reset-password-btn {
   background: greenyellow;
   font-size: 14px;
   align-self: flex-end;
-  margin: 0 40px 10px 0;
+  margin: 0 38px 10px 0;
 }

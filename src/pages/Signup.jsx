@@ -44,7 +44,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="signup-bg-container">
+    <div className="signup-bg-container d-flex flex-column justify-content-center align-items-center">
       <h1 className="title">REGISTER</h1>
 
       <Formik

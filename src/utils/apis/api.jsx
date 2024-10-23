@@ -69,15 +69,17 @@ export const getLoggedUsername = async () => {
 };
 
 export const postChangeUsername = async (values) => {
-  console.log(values);
-  
   try {
-    const response = await axios.post("http://localhost:3001/profile", values, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    });
+    const response = await axios.post(
+      "http://localhost:3001/change-username",
+      values,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     return { status: 500, message: error.message };
@@ -86,14 +88,42 @@ export const postChangeUsername = async (values) => {
 
 export const postChangePassword = async (values) => {
   try {
-    const response = await axios.post("http://localhost:3001/profile", values, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    });
+    const response = await axios.post(
+      "http://localhost:3001/change-password",
+      values,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     return { status: 500, message: error.message };
   }
-}
+};
+
+export const postVerifyEmail = async (values) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:3001/verify-email",
+      values
+    );
+    return response.data;
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+};
+
+export const postResetPassword = async (values) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:3001/reset-password",
+      values
+    );
+    return response.data;
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+};

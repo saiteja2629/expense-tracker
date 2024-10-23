@@ -11,7 +11,7 @@ import '../styles/form.css'
 const SignupForm = () => {
   return (
     <>
-      <Form className="signup-form-container">
+      <Form className="signup-form-container d-flex flex-column justify-content-around align-items-center">
         <InputFields
           type="text"
           name="username"
@@ -48,7 +48,7 @@ const SignupForm = () => {
           placeholder="Enter Confirm password"
         />
 
-        <Button type='submit' className="login-signup-btn" text="Register" />
+        <Button type="submit" className="login-signup-btn" text="Register" />
       </Form>
 
       <p className="navigate-text">
