@@ -1,0 +1,25 @@
+.toast {
+  width: 300px !important;
+}
+
+.error-msg {
+  background-color: #e83535;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.success-msg {
+  background-color: #74ef74;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.toast-msg {
+  font-size: 14px;
+}
+
+.toast-close-btn {
+  background: none;
+  color: #ffffff;
+  border: none;
+}

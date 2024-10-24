@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
+import { MyContext } from "../MyContext";
 import { postUserSignUp } from "../utils/apis/api";
 import SignupForm from "../components/SignupForm";
+import Toast from "../components/Toast";
 
 const validationSchema = Yup.object({
   username: Yup.string()
@@ -35,6 +37,7 @@ const validationSchema = Yup.object({
 });
 
 const Signup = () => {
+  const { state, setState } = useContext(MyContext);
   const initialValues = {
     username: "",
     email: "",
@@ -42,6 +45,10 @@ const Signup = () => {
     confirmPassword: "",
   };
   const navigate = useNavigate();
+
+  const handleClose = () => {
+    setState((prev) => ({ ...prev, isToastOpen: false }));
+  };
 
   return (
     <div className="signup-bg-container d-flex flex-column justify-content-center align-items-center">
@@ -53,22 +60,35 @@ const Signup = () => {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const data = await postUserSignUp(values);
-          console.log("SIGNUP DATA", data);
+
           try {
             if (data.status === 200) {
               navigate("/login");
               resetForm();
+              setState((prev) => ({ ...prev, isToastOpen: false }));
             } else {
-              // setToastMsg({ message: postDataResponse.message, isError: true });
+              setState({
+                toast: { message: data.message, isError: true },
+                isToastOpen: true,
+              });
               setSubmitting(false);
             }
           } catch (error) {
-            // setToastMsg({ message: "Failed to post data", isError: true });
+            setState({
+              toast: { message: "Failed to post data", isError: true },
+              isToastOpen: true,
+            });
           }
         }}
       >
         <SignupForm />
       </Formik>
+
+      <Toast
+        isOpen={state.isToastOpen}
+        closeHandle={handleClose}
+        toast={state.toast}
+      />
     </div>
   );
 };
