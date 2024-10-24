@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { MyContext } from "../MyContext";
 import { getMyExpenses } from "../utils/apis/api";
 
-import "../styles/navbar.css";
+import '../styles/navbar.css'
 
 const Navbar = () => {
   const { state, setState } = useContext(MyContext);
